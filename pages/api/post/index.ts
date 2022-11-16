@@ -5,7 +5,7 @@ import prisma from "../../../lib/prismadb";
 // POST /api/post
 export default async function handle(
   req: {
-    body: { id: string; email: string; userName: string; userPhoto: string };
+    body: { id: number; email: string; userName: string; userPhoto: string };
   },
   res: {
     status: (arg0: number) => {

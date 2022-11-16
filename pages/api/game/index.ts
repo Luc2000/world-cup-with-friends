@@ -4,7 +4,7 @@ import prisma from "../../../lib/prismadb";
 
 // GET api/game
 export default async function handle(
-  req: { query: { id: string } },
+  req: { query: { id: number } },
   res: { json: (arg0: GameUsers[]) => void }
 ) {
   const { id } = req.query;
