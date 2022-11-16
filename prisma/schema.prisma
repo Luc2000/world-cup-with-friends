@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("DATABASE_URL")
+}
+
+model Game {
+  id        String      @id @default(cuid())
+  homeTeam  String
+  awayTeam  String
+  location  String
+  time      String
+  GameUsers GameUsers[]
+
+  @@map("game")
+}
+
+model GameUsers {
+  id        String @id @default(cuid())
+  gameId    String
+  userMail  String
+  userPhoto String
+  userName  String
+  game      Game   @relation(fields: [gameId], references: [id])
+}
